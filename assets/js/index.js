@@ -89,6 +89,8 @@ var handleNoteView = function() {
   renderActiveNote();
 };
 
+console.log("handlenoteview");
+
 // Sets the activeNote to and empty object and allows the user to enter a new note
 var handleNewNoteView = function() {
   activeNote = {};
