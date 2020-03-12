@@ -9,15 +9,17 @@ var PORT = process.env.PORT || 3000;
 //Handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'))
 
 //needed variables
 
+
 //Routes
-app.get("/", function(req, res) {
+app.get("/public/index", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/notes", function(req, res) {
+app.get("/public/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "notes.html"));
 });
 
