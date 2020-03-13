@@ -11,7 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'))
 
-//needed variables
 
 
 //Routes
@@ -23,6 +22,10 @@ app.get("/public/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "notes.html"));
 });
 
+// Displays all notes
+app.get("/api/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "/db/db.json"));
+  });
 
 //Server is listening
 app.listen(PORT, function() {
