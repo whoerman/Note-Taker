@@ -9,9 +9,10 @@ var PORT = process.env.PORT || 3000;
 //Handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')));
 
-
+//notes json
+let notesAPI = [{title:"Assignment 1", text:"This Homework is hard!"}]
 
 //Routes
 app.get("/public/index", function(req, res) {
@@ -22,10 +23,13 @@ app.get("/public/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "notes.html"));
 });
 
-// Displays all notes
 app.get("/api/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "/db/db.json"));
-  });
+    return res.json(notesAPI);
+});
+
+app.post("/api/notes", function(req, res) {
+    console.log("How do I post?");
+});
 
 //Server is listening
 app.listen(PORT, function() {
