@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //notes json
+// var notesAPI = require('./db.json')
 let notesAPI = [{title:"Assignment 1", text:"This Homework is hard!"}]
 
 //Routes
@@ -28,8 +29,19 @@ app.get("/api/notes", function(req, res) {
 });
 
 app.post("/api/notes", function(req, res) {
-    console.log("How do I post?");
-});
+    console.log("posting in server");
+    let newNoteAPI = req.body;
+    notesAPI.push(newNoteAPI);
+    res.json(notesAPI);
+  });
+
+  app.delete("/api/notes", function(req, res) {
+    console.log("delete in server");
+    let xNoteAPI = req.body;
+    notesAPI.pushpop(xNoteAPI);
+    res.json(notesAPI);
+  });
+
 
 //Server is listening
 app.listen(PORT, function() {
