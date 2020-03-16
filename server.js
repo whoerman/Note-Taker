@@ -38,7 +38,8 @@ app.post("/api/notes", function(req, res) {
   app.delete("/api/notes", function(req, res) {
     console.log("delete in server");
     let xNoteAPI = req.body;
-    notesAPI.pushpop(xNoteAPI);
+    console.log(xNoteAPI);
+    notesAPI.split(xNoteAPI);
     res.json(notesAPI);
   });
 

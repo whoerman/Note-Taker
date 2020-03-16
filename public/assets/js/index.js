@@ -104,9 +104,11 @@ var handleNoteDelete = function(event) {
 var handleNoteView = function() {
   console.log("handleNoteView running");
   activeNote = $(this).data();
-  console.log(activeNote);    
-  $noteTitle.val(activeNote.title);
-  $noteText.val(activeNote.text);
+  let currentTitle = activeNote.title;
+  console.log(currentTitle);
+  console.log(activeNote.text); 
+  $(".note-title").text(currentTitle);
+  $noteText.text(activeNote.text);     
   renderActiveNote(activeNote);
 };
 
